@@ -1,6 +1,6 @@
 # UAB Dataset Catalog
 
-This repository contains the code for the automated API harvesting of dataset records for the AB Dataset Catalog. The catalog is located at https://digitalcommons.library.uab.edu/datasets/. 
+This repository contains the code for the automated API harvesting of dataset records for the UAB Dataset Catalog. The catalog is located at https://digitalcommons.library.uab.edu/datasets/. 
 
 Please note that this code is under development, and feel free to reach out to Claire at cwarner at rockefeller.edu with any questions, comments, or suggestions. 
 
