@@ -6,7 +6,11 @@ Please note that this code is under development, and feel free to reach out to C
 
 ## General Workflow
 
-The goal for this project is to search for datasets authored by UAB-affiliated scholars in generalist repositories. Metadata for these datasets is then downloaded as  JSON file. The code then loads in the data as a Pandas dataframe and manipulates it to generate a new dataframe. This dataframe is compatible with the batch upload spreadsheet the corresponds to the collection in the UAB Digital Commons instance where the dataset catalog is hosted. Please see the section below for more information on the Digital Commons collection.
+This code enables API-facilitated searches for research datasets published online, either in the Zenodo repository or on the DataCite Commons. It is currently oriented towards finding datasets affiliated with the University of Alabama at Birmingham, but is intended to be transferable to other institutions. The code then loads the metadata of the located datasets as a Pandas dataframe and manipulates it to generate a new dataframe. This dataframe is compatible with the batch upload spreadsheet for the collection in the UAB Digital Commons instance, where the dataset catalog is hosted. Please see the section below for more information on the Digital Commons collection.
+
+## Metadata Schema
+
+The metadata schema is saved in the PDF titled "metadata_schema_1.0". This schema outlines the various columns in the output spreadsheet and how they should be formatted for compatibility with Digital Commons.
 
 ### De-duplication
 
@@ -18,11 +22,11 @@ After the de-duplicated spreadsheet is output as a .xlsx file you can then manua
 
 ## Structure 
 
-The repository is structured in a few sections corresponding to the repositories we access to populate the catalog. Below I have listed the current status of each "section".
+The repository is structured in a few sections corresponding to the repositories we access to populate the catalog. Below are listed the current status of each "section".
 
 ### Zenodo
 
-The Zenodo API section is the first one we have completed. It has two functions, allowing you to enter specific DOIs that you would like to process (download via API and reformat to Digital Commons batch upload format) or search for datasets published within a set timeframe. It will access Zenodo records, as well as some Dryad records which have been mirrored on Zenodo. We plan to to develop separate code for Dryad since this mirroring is no longer happening. 
+The Zenodo API section is the first one we have completed. It has two functions: allowing you to enter specific DOIs that you would like to process (download via API and reformat to Digital Commons batch upload format) or search for datasets published within a set timeframe. It will access Zenodo records, as well as some Dryad records that have been mirrored on Zenodo. We plan to develop separate code for Dryad since this mirroring is no longer happening. 
 
 ### DataCite
 
@@ -39,4 +43,5 @@ We have many ideas for the future of this code/project. Stay tuned for updates a
  1. Improving the API search strategy and investigating the overlap (or lack thereof) between different searches. For example, how does the Zenodo API search compare to the DataCite API search, which should, in theory, cover all Zenodo datasets?
  2. Developing standalone code for the Dryad API. Many Dryad datasets can be accessed via the Zenodo API, but since this mirroring is no longer happening, we will need a new set of code to directly search Dryad records using their API. We will also look into whether this code would be made obsolete by the DataCite code.
  3. Developing standalone code for ICPSR. Currently, ICPSR metadata records must be downloaded individually in XML format from a manual search, but we can develop code to process these XML files in bulk and generate the Batch Upload spreadsheet.
+ 4. Unifying the separate notebooks into one notebook that consolidates all searching.
  
